@@ -101,7 +101,7 @@ console.log(Kallypo);
 */
 
 // Conditionals
-/* 
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Return a string “Congratulations” if a person is equal to or older than 21
 
@@ -111,3 +111,20 @@ if (personAge >= 20) {
 }
 */
 
+// Loops
+/* 
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Based on the below array of search history of a user, return “Would you like to learn how to create websites for free?” if there is a keyword html or css
+
+let searchHistory: string[] = [
+    "how to make money online",
+    "benefits of eating garlic",
+    "html css tutorial",
+    "calisthenics",
+];
+
+searchHistory.forEach(history => {
+    if (history.includes('html') || history.includes('css'))
+        console.log('Would you like to learn how to create websites for free ?')
+})
+*/
