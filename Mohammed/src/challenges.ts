@@ -30,3 +30,36 @@ bool = 55
 
 let strLength = str.length
 */
+
+// Arrays
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create an array of numbers
+
+let numbers: number[] = [1, 2, 3, 4, 5]
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// From the previously create array, access the second-indexed item
+
+console.log(numbers[1]);
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create an array of the two boolean values
+
+let bools: boolean[] = [true, false, false, true, true]
+*/
+
+// Tuples
+//  *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create a string type tuple
+
+let stringTuple: [string] = ['String']
+
+//  *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Create a number type tuple
+
+let numberTuple: [number] = [5]
+
+//  *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create a string and number type tuple and access the second item
+let tuple: [string, number] = ['Hello', 6]
