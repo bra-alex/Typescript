@@ -50,6 +50,7 @@ let bools: boolean[] = [true, false, false, true, true]
 */
 
 // Tuples
+/*
 //  *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Create a string type tuple
 
@@ -63,3 +64,39 @@ let numberTuple: [number] = [5]
 //  *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
 // Create a string and number type tuple and access the second item
 let tuple: [string, number] = ['Hello', 6]
+*/
+
+// Enums
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create an enum of product names and display it on the console
+
+enum ProductNames {
+    Kallypo = 'Kallypo',
+    Rice = 'Rice',
+    Biscuit = 'Biscuit'
+}
+
+console.log(ProductNames);
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Create an enum of product ids and display it on the console
+enum Products {
+    Kallypo = 1,
+    Rice,
+    Biscuit
+}
+
+console.log(Products);
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create an enum of a single favorite product detail from the two previously created enums and display it on the console
+enum Kallypo {
+    Name = 'Kallypo',
+    Price = 'GHC 3.0',
+    Type = 'juice',
+}
+
+console.log(Kallypo);
+*/
+
