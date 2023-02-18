@@ -112,7 +112,7 @@ if (personAge >= 20) {
 */
 
 // Loops
-/* 
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Based on the below array of search history of a user, return “Would you like to learn how to create websites for free?” if there is a keyword html or css
 
@@ -127,4 +127,72 @@ searchHistory.forEach(history => {
     if (history.includes('html') || history.includes('css'))
         console.log('Would you like to learn how to create websites for free ?')
 })
+*/
+
+// Functions
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create a function that returns the multiplication of two arbitrary numbers and returns a type error when passed a string
+
+function multiply(num1: number, num2: number): number{
+    return num1 * num2
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Simulate a type error for the returned value of a function of arbitrary type
+
+function func(): number{
+    return " "
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create an arrow function that returns the addition of a number and a boolean type
+const arrow = (): [number, boolean] => {
+    let sum = 5+5
+    return [sum, true]
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 4 ------------------
+// Create a function that makes words plural by adding "s"
+
+function plurals(words: string[]): string[] {
+    return words.map(word => `${word}s`)
+}
+
+console.log(plurals(['book', 'script', 'boy', 'girl']))
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 5 ------------------
+// Write a function that adds or subtracts 1 from a number based on a boolean evaluation. If the boolean is true, it adds 1 otherwise subtracts 1 from the number
+
+function boolAddition(num: number): number {
+    let bool: boolean = Math.random() < 0.5
+    
+    if (bool) return num + 1
+    
+    return num - 1
+}
+
+console.log(boolAddition(0))
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 6 ------------------
+// Create a function that takes an array of numbers, then returns it. Does not change the array. If a string is passed, it throws a type error
+
+function array(numbers: number[]): number[] {
+  return numbers
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 7 ------------------
+// Create a function that takes an array of tuples consisting of two properties, a name and an age. Return the names in a string array
+
+function arrayTuples(tuples: [string, number][]): string[] {
+  return tuples.map(tuple => tuple[0])
+}
+
+console.log(
+  arrayTuples([
+    ['Alex', 20],
+    ['Yaa', 16],
+    ['Dross', 66],
+  ]),
+)
 */
