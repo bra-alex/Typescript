@@ -79,12 +79,8 @@ function calculateIncome(income: number, taxYear = 2022): number {
 
 // Objects
 // Have to declare structure of object in type annotation
-let employee: {
-  readonly id: number, //makes value readOnly
-  name: string,
-  children?: string[], //optional employee attribute
-  retire: (date: Date) => void
-} = {
+/*
+let employee: Employee = {
   id: 5,
   name: 'Alexander',
   retire(date) {
@@ -93,3 +89,101 @@ let employee: {
 }
 
 let g = [true, false, false]
+*/
+
+// Type  Aliases
+/*
+type Employee = {
+  readonly id: number, //makes value readOnly
+  name: string,
+  children?: string[], //optional employee attribute
+  retire: (date: Date) => void
+}
+*/
+
+// Intersection Types
+// Deeclare an object with the same properties as the types
+/*
+type Draggable = {
+  drag: () => void
+}
+
+type Resizable = {
+  resize: () => void
+}
+
+type UIWidget = Draggable & Resizable
+
+let widget: UIWidget = {
+  drag() {
+      
+  },
+  resize() {
+      
+  },
+}
+*/
+
+// Literal Tyoes
+// Specific or exact values
+// Hard coding the values
+/*
+let quantity: 25 | 30 = 30
+*/
+// Putting it in a type
+/*
+type Weight = 60 | 70
+type Metric = 'kg' | 'g'
+
+let weight: Weight = 60
+*/
+
+// Nullable Types
+/*
+function sayHello(name: String | null) {
+  if (name)
+    console.log(name);
+  else
+    console.log('Hello');
+}
+
+sayHello(null)
+*/
+
+// Optional Chaining
+/*
+type Customer = {
+  birthday?: Date
+}
+*/
+
+// Optional property access
+/*
+function getBirthday(id: number): Customer | null {
+  return id === 0 ? null : { birthday: new Date() }
+}
+
+let customerBirthday = getBirthday(1)
+
+console.log(customerBirthday?.birthday?.getFullYear())
+*/
+
+// Optional element access
+/*
+let customers: Customer[] | null = null
+console.log(customers?.[0])
+*/
+
+// Optional call
+/*
+let log: any = null
+log?.('a')
+*/
+
+// Null Coalescing
+/*
+let speed: number = 30
+let ride = {
+  speed: speed ?? 50
+}
+*/
