@@ -187,3 +187,70 @@ let ride = {
   speed: speed ?? 50
 }
 */
+
+// Type Assertion
+// Does not behave as type casting in other languages
+/*
+let phone = document.getElementById('phone') as HTMLInputElement
+
+// OR
+
+let phone = <HTMLInputElement> document.getElementById('phone')
+*/
+
+// Unknown type
+// Prefered to any type because compiler forces some type checking
+/*
+function getOut(name: unknown) {
+  if (typeof name === 'string') console.log(`Get out ${name.toUpperCase()}`)
+}
+
+getOut('Yaa')
+*/
+
+// Never Type
+// Used for functions that never return
+/*
+function throwErr(message: string): never{
+  throw new Error(message);
+}
+
+function process(): never{
+  while (true){}
+}
+*/
+
+// Exercises
+/*
+type User = {
+  name: string
+  age: number
+  occupation?: string
+}
+
+let users: User[] = [
+  {
+    name: 'John Smith',
+    age: 30,
+    occupation: 'Software engineer',
+  },
+  {
+    name: 'Kate Müller',
+    age: 28,
+  },
+]
+
+type Bird = {
+  fly: () => void
+}
+
+type Fish = {
+  swim: () => void
+}
+
+type Pet = Bird | Fish
+
+type Weekday = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+
+let day: Weekday = 'Sunday'
+*/
