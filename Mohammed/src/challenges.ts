@@ -196,3 +196,129 @@ console.log(
   ]),
 )
 */
+
+// Basic Types
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Write a function that can accept number, string and boolean as argument types and returns a string type
+let fxn: (n: number, s: string, b: boolean) => string
+
+fxn = (n, s, b) => {
+  return `${n} is ${s}, ${b}`
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 4 ------------------
+// Write a function that returns an inverted boolean value
+let inverter: (bool: boolean) => boolean
+
+inverter = bool => {
+  return !bool
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 5 ------------------
+// Write a function that adds 1 to a number, subtracts 1 from a number or does nothing to a number based on a condition. First argument is a number and second argument is either “add”, “subtract” or “do nothing”
+
+type Condition = 'add' | 'subtract' | 'do nothing'
+
+let changeNum: (num: number, condition: Condition) => number
+
+changeNum = (num, condition) => {
+  if (condition === 'add') {
+    return num + 1
+  }
+
+  if (condition === 'subtract') {
+    return num - 1
+  }
+
+  return num
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create an object type that has 3 properties (name, age, job) and create an object from this type
+type Employee = {
+  name: string
+  age: number
+  job: string
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Access the published property from the following object using the bracket notation and the dot notation
+
+type OnlineCourse = {
+  name: string
+  platform: string
+  features: string[]
+  'meta-data': {
+    published: boolean
+  }
+}
+
+let myCourse: OnlineCourse = {
+  name: 'TS Bootcamp',
+  platform: 'Udemy',
+  features: ['Practical', 'Exercise Oriented', 'Modern TS Concepts'],
+  'meta-data': {
+    published: true,
+  },
+}
+
+myCourse['meta-data'].published
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Fix the error in the following code by modifying the type Product. Do not make changes to the product1 or product2 objects
+
+type Product = {
+  name: string
+  publishedStatus?: boolean
+}
+
+const product1: Product = { name: 'TS Bootcamp' }
+const product2: Product = { name: 'TS Bootcamp', publishedStatus: true }
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 5 ------------------
+// Create a product type and add a holidaySales method that return a string “Sale is On”. Finish by creating an object from the type and logging the string on the console
+
+type Product = {
+    holidaySales(): string
+}
+
+let sales: Product = {
+    holidaySales() {
+        return 'Sale is On'
+    },
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Write a function that takes a literal object with one property of name and simply returns the name
+
+function getName({ name }: { name: string }): string {
+  return name
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Write a function that takes an object type with one property of online (type boolean) as argument and simply returns the whether the user is online or offline
+function userOnline({ online }: { online: boolean }): string {
+  if (online) {
+    return 'user is online'
+  }
+  return 'user is offline'
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 5 ------------------
+// Create a function that produces a value based on the following conditions
+
+// 1--------- If the argument passed is a string containing a number, it should return the number
+
+// 2---------If the argument passed is a string not containing a number, it should return undefined
+
+// 3---------If the argument passed is undefined, it should return undefined
+
+function toInt(number: string | undefined): number | undefined {
+  if (number) {
+    const num = parseInt(number)
+    if (num) return num
+  }
+  return undefined
+}
+*/
