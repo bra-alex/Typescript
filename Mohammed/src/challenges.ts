@@ -322,3 +322,90 @@ function toInt(number: string | undefined): number | undefined {
   return undefined
 }
 */
+
+// Generics
+// Array
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create a generic array of strings and pass some items
+let strArray: Array<string> = ['', '']
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Create a generic array of the two boolean values
+let twoBool: Array<boolean> = [true]
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create a generic array that is an array of an array of strings
+let strNestedArray: Array<Array<string>> = [['']]
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 4 ------------------
+// Create a function whose return type is a generic array of numbers. Add some values as well.
+function numArray(...values: number[]): Array<number> {
+  return values
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 5 ------------------
+// Create a function whose return type is a generic array of array of numbers. Add some values as well.
+function nestedNumArray(...values: number[]): Array<Array<number>> {
+  return [values]
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 6 ------------------
+// Create a function whose return type is a generic array of array of strings. Add some values as well.
+function nestedStrArray(...values: string[]): Array<Array<string>> {
+  return [values]
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 7 ------------------
+// Extract the value  “TS” from the following generic array
+
+let someArr: Array<Array<Array<Array<string | number>>>> = [[[[1, 2], ['C#'], ['JS', 'Java'], ['HTML', 'CSS', 'TS']]]]
+let [[[, , , last]]] = someArr
+
+console.log(last[last.length - 1])
+*/
+
+// Function
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Write a generic function that simply returns its argument. Test with several types
+function returnArg<T>(arg: T): T {
+  return arg
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Write a generic function that returns the length of an array. Test with several types
+function getArrayLength<T>(array: T[]): number {
+  return array.length
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Write a generic function which accepts an array of strings returning the 5th item
+function returnString<T>(elements: T[]): T {
+  return elements[4]
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 4 ------------------
+// Write a generic function that accepts a generic array returning the last item of the array
+function returnArr<T>(elements: Array<T>): T {
+  return elements[elements.length - 1]
+}
+*/
+
+// Objects
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create a generic object type for an air conditioner with 2 properties that can only accept one specific type
+type AirConditioner<T> = {
+  name: T
+  hp: T
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Create a generic object type for a smartphone with 3 properties that can accept any type of value. Finally, store the object property values in an array
+type Smartphone<T> = {
+  name: T
+  type: T
+  ram: T
+}
+
+let smartphones: Array<Smartphone<string | number>> = [{ name: 'iPhone 14 Pro', type: 'Smartphone', ram: 6 }]
