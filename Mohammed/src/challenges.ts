@@ -393,6 +393,7 @@ function returnArr<T>(elements: Array<T>): T {
 */
 
 // Objects
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Create a generic object type for an air conditioner with 2 properties that can only accept one specific type
 type AirConditioner<T> = {
@@ -409,3 +410,78 @@ type Smartphone<T> = {
 }
 
 let smartphones: Array<Smartphone<string | number>> = [{ name: 'iPhone 14 Pro', type: 'Smartphone', ram: 6 }]
+*/
+
+// Type Narrowing
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Write a function that handles whether a product is viewed or not. If the product is viewed once or more, the function returns true. If the view count is zero, the function returns false. The function is invoked only with either the number of times the product was viewed or the boolean true value.
+
+type Product = {
+  viewCount: number
+}
+
+function productViewed(product: Product): boolean {
+  if (product.viewCount >= 1) {
+    return true
+  }
+  return false
+}
+
+function viewProduct(view: number | boolean) {
+  if (typeof view === 'boolean' && view) {
+    productViewed({ viewCount: 1 })
+  } else if (typeof view === 'number' && view > 1) {
+    productViewed({ viewCount: 3 })
+  }
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Create a function that returns the first item of an array. The function must accept either a generic array or a single item irrespective of type. If a single item has been passed, then the function simply returns the item.
+
+function returnItem<T>(item: T | T[]): T {
+  if (Array.isArray(item)) {
+    return item[0]
+  }
+
+  return item
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 3 ------------------
+// Create a function that accepts a single employee object with only one property of name (created with an object type) or an array of employee objects created with the same object type. If an object is passed, it returns the value of the name property, if an array is passed, it returns the array length
+type Employee = {
+  name: string
+}
+
+function returnEmployeeName(employee: Employee | Employee[]): string | number {
+  if (Array.isArray(employee)) {
+    return employee.length
+  }
+
+  return employee.name
+}
+*/
+
+// Object Narrowing
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create an Employee type with name as string, position title as string, age as number and hired as boolean types. Create an instance of the object type with an employee info. Then create another type narrowed to only the employee names.
+
+type Employee = {
+  name: string
+  position: string
+  age: number
+  hired: boolean
+}
+
+let employee: Employee = {
+  name: 'Jobless Lunatic',
+  position: 'Unemployed',
+  age: 25,
+  hired: false,
+}
+
+type EmployeeName = {
+  name: string
+}
+
+let employeeName: EmployeeName = employee
