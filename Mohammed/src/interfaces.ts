@@ -1,4 +1,5 @@
 // Used to define object structure
+/*
 interface Car extends Vehicle {
   readonly id: number
   model: string
@@ -49,3 +50,4 @@ interface Vehicle {
 // Interfaces with the same name are automatically merged into one
 
 // Generic interfaces are the same as object interfaces
+*/
