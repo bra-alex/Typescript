@@ -1,8 +1,10 @@
+/*
 const enum Products {
   Sunglasses,
   Hats,
   Shoes,
 }
+*/
 
 // Function declaration
 /*

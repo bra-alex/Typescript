@@ -511,3 +511,41 @@ const productPrices: ProductPrices = [25.0, 66.59, 63.3]
 
 console.log(productPrices)
 */
+
+// Enums Deep Dive
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
+// Create a group of five constants for five products of your choice and initialize the enum with 1
+
+const enum Products {
+  Rice,
+  Apples,
+  Yam,
+  Plantain,
+  Cocoyam,
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
+// Perform an exhaustiveness checking for the previous enum and return their prices
+
+function priceProduct(product: Products) {
+  switch (product) {
+    case Products.Rice:
+      return 50
+    case Products.Apples:
+      return 10
+    case Products.Yam:
+      return 15
+    case Products.Plantain:
+      return 15
+    case Products.Cocoyam:
+      return 10
+    default:
+      productWarning(product)
+  }
+}
+
+function productWarning(product: never): never {
+  throw new Error(`${product} has no price!`)
+}
+*/
