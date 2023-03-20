@@ -463,9 +463,9 @@ function returnEmployeeName(employee: Employee | Employee[]): string | number {
 */
 
 // Object Narrowing
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Create an Employee type with name as string, position title as string, age as number and hired as boolean types. Create an instance of the object type with an employee info. Then create another type narrowed to only the employee names.
-/*
 type Employee = {
   name: string
   position: string
@@ -488,17 +488,18 @@ let employeeName: EmployeeName = employee
 */
 
 // Index signatures
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 2 ------------------
 // Create an index signature that map a product’s name (a string) to a price (a number or undefined). Finally create an object from the type
-/*
 type Product = {
   [name: string]: number | undefined
 }
 */
 
+// Indexed access
+/*
 // *-*-*-*-*-*-*-*-*-*-* Challenge 1 ------------------
 // Create a Product type with name and prices members (prices is an array of numbers). Then index into it with a ProductPrices type. Finally create an array of prices and log it
-/*
 type Product = {
   name: string
   prices: number[]
