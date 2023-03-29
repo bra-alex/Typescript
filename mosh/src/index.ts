@@ -254,3 +254,117 @@ type Weekday = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Sat
 
 let day: Weekday = 'Sunday'
 */
+
+// Classes
+// Initialising class
+class Account {
+  /*
+  // make id readonly
+  // readonly id: number
+  // owner: string
+  // Access Control
+  // private _balance: number
+  */
+  // optional property
+  _nickname?: string
+
+  // Parameter properties
+  constructor(public readonly id: number, public owner: string, private _balance: number) {}
+
+  deposit(amount: number): void {
+    if (amount <= 0) throw new Error('Invalid amount')
+
+    this._balance += amount
+  }
+
+  // Getter
+  get balance(): number {
+    return this._balance
+  }
+
+  // Setter
+  set nickname(value: string) {
+    this._nickname = value
+  }
+}
+
+// Creating object from class
+let account = new Account(1, 'Alex', 0)
+account.deposit(100)
+
+// Static members
+class Ride {
+  private static _activeRides: number = 0
+  startRide() {
+    Ride._activeRides++
+  }
+  stopRide() {
+    Ride._activeRides--
+  }
+
+  static get activeRides(): number {
+    return Ride._activeRides
+  }
+}
+
+const ride1 = new Ride()
+ride1.startRide()
+
+const ride2 = new Ride()
+ride2.startRide()
+
+// Inheritance
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName(): string {
+    return this.firstName + ' ' + this.lastName
+  }
+}
+
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName)
+  }
+}
+
+// Method Overriding
+class Teacher extends Person {
+  override get fullName(): string {
+    return 'Professor ' + super.fullName
+  }
+}
+const teacher = new Teacher('John', 'Smith')
+
+console.log(teacher.fullName)
+
+// Class abstraction
+abstract class Shape {
+  constructor(public color: string) {}
+
+  abstract render(): void
+}
+
+class Circle extends Shape {
+  constructor(color: string) {
+    super(color)
+  }
+
+  override render(): void {
+    console.log('Drawing circle')
+  }
+}
+
+// Interfaces are used when class abstraction doesnt contain any logic
+interface IShape {
+  color: string
+  render(): void
+}
+
+class Rectangle implements IShape {
+  constructor(public color: string) {}
+
+  render(): void {
+    throw new Error('Method not implemented.')
+  }
+}
