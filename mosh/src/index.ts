@@ -257,14 +257,15 @@ let day: Weekday = 'Sunday'
 
 // Classes
 // Initialising class
+/*
 class Account {
-  /*
+  //
   // make id readonly
   // readonly id: number
   // owner: string
   // Access Control
   // private _balance: number
-  */
+  // 
   // optional property
   _nickname?: string
 
@@ -367,4 +368,39 @@ class Rectangle implements IShape {
   render(): void {
     throw new Error('Method not implemented.')
   }
+}
+*/
+
+// Exercises
+class Logger {
+  constructor(private _fileName: string) {}
+  logName(): void {
+    console.log(this._fileName)
+  }
+}
+
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName(): string {
+    return this.firstName + ' ' + this.lastName
+  }
+}
+
+class Employee extends Person {
+  constructor(firstName: string, lastName: string, public salary: number) {
+    super(firstName, lastName)
+  }
+}
+
+interface Employees {
+  name: string
+  salary: number
+  address: Address
+}
+
+interface Address {
+  street: string
+  city: string
+  zipCode: number
 }
