@@ -549,3 +549,51 @@ function productWarning(product: never): never {
   throw new Error(`${product} has no price!`)
 }
 */
+
+// OOP
+// Classes
+/*
+// *-*-*-*-*-*-*-*-*-*-* Challenge 7 ------------------
+// Create a product class with 2 properties, name and number of students. Add a method to this class that would return the string “Best Seller” if a course has equal to or more than 3000 students, otherwise, it should print “Not so much”
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 8 ------------------
+// Write a function that sets the price of a course and takes either a number or undefined. If undefined is passed, it returns a price of 9.99 otherwise it returns the given price
+
+class Product {
+  constructor(public name: string, public numOfStudents: number) {}
+  getRanking(): string {
+    if (this.numOfStudents >= 3000) return 'Best Seller'
+    return 'Not so much'
+  }
+  setPrice(price: number | undefined): number {
+    if (!price) {
+      return 9.99
+    }
+    return price
+  }
+}
+
+// *-*-*-*-*-*-*-*-*-*-* Challenge 13 ------------------
+// Create a Product class with a name property and a holidaySales method that return true. Then create an interface called ProductInfo that extends the class that includes a price property of type number. Finally create an object from the interface and log the object
+
+class Product {
+  constructor(public name: string) {}
+  holidaySales(): true {
+    return true
+  }
+}
+
+interface ProductInfo extends Product {
+  price: number
+}
+
+const productInfo: ProductInfo = {
+  name: 'Name',
+  price: 300,
+  holidaySales() {
+    return true
+  },
+}
+
+console.log(productInfo)
+*/
