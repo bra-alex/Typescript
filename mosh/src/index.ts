@@ -372,6 +372,7 @@ class Rectangle implements IShape {
 */
 
 // Exercises
+/*
 class Logger {
   constructor(private _fileName: string) {}
   logName(): void {
@@ -404,3 +405,52 @@ interface Address {
   city: string
   zipCode: number
 }
+*/
+
+// Generics
+// Generic constraints
+// function clear<T extends type/class/interface>()
+
+// Extending generic classes
+interface Products {
+  name: string
+  price: number
+}
+
+class Store<T> {
+  protected _objects: T[] = []
+
+  add(object: T): void {
+    this._objects.push(object)
+  }
+
+  // Keyof operator
+  find(property: keyof T, value: unknown): T | undefined {
+    return this._objects.find(obj => obj[property] === value)
+  }
+}
+
+// Pass the genric on
+/*
+class CompressibleStore<T> extends Store<T> {
+  compress(): void {}
+}
+*/
+
+// Restrict Generic Parameter
+/*
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  search(name: string): T | undefined {
+    return this._objects.find(obj => obj.name === name)
+  }
+}
+*/
+
+// Fix Generic Parameter
+/*
+class ProductsStore extends Store<Products> {
+  filterByCategory(category: string): Products[] {
+    return []
+  }
+}
+*/
