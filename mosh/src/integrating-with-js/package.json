@@ -1,0 +1,16 @@
+{
+  "name": "integrating-with",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tax.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "types": "./tax.d.ts",
+  "devDependencies": {
+    "@types/lodash": "^4.14.192"
+  }
+}
