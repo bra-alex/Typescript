@@ -1,3 +1,3 @@
-function getProductName({ productName }: { productName: string }): string {
-  return productName
-}
+import { course, getProductName } from './modules'
+
+console.log(getProductName({ productName: course.name }))
