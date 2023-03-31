@@ -412,6 +412,7 @@ interface Address {
 // function clear<T extends type/class/interface>()
 
 // Extending generic classes
+/*
 interface Products {
   name: string
   price: number
@@ -429,6 +430,7 @@ class Store<T> {
     return this._objects.find(obj => obj[property] === value)
   }
 }
+*/
 
 // Pass the genric on
 /*
@@ -453,4 +455,147 @@ class ProductsStore extends Store<Products> {
     return []
   }
 }
+*/
+
+// Decorators
+/*
+function Component(constructor: Function) {
+  console.log('Component decorator called')
+  constructor.prototype.uniqueId = Date.now()
+  constructor.prototype.insertInDOM = () => {
+    console.log('Inserting the component in the DOM')
+  }
+}
+*/
+
+// Parameterized Decorators
+/*
+type ComponentOptions = {
+  selector: string
+}
+
+function Component(options: ComponentOptions) {
+  return (constructor: Function) => {
+    console.log('Component decorator called')
+    constructor.prototype.options = options
+    constructor.prototype.uniqueId = Date.now()
+    constructor.prototype.insertInDOM = () => {
+      console.log('Inserting the component in the DOM')
+    }
+  }
+}
+*/
+
+// Decorator Composition
+/*
+function Pipe(constructor: Function) {
+  console.log('Pipe decorator called')
+  constructor.prototype.pipe = true
+}
+
+@Component({ selector: '#my-profile' })
+@Pipe
+class ProfileComponent {}
+*/
+
+// Method Decorators
+/*
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function
+  descriptor.value = function (...args: any) {
+    console.log('Before')
+    original.call(this, ...args)
+    console.log('After')
+  }
+}
+class Person {
+  @Log
+  say(message: string) {
+    console.log('Person says ' + message)
+  }
+}
+
+const person = new Person()
+person.say('Hello')
+*/
+
+// Accessor Decorators
+/*
+function Capitalize(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.get
+  descriptor.get = function () {
+    const result = original!.call(this)
+    return typeof result === 'string' ? result.toUpperCase() : result
+  }
+}
+class Person {
+  constructor(public fName: string, public lName: string) {}
+
+  @Capitalize
+  get fullName() {
+    return `${this.fName} ${this.lName}`
+  }
+}
+*/
+
+// Property Decorators
+/*
+function MinLength(length: number) {
+  return (target: any, propertyName: string) => {
+    let value: string
+    const descriptor: PropertyDescriptor = {
+      set(newValue: string) {
+        if (newValue.length < length)
+          throw new Error(`${propertyName} should be at least ${length} characters long`)
+        value = newValue
+      },
+      get() {
+          return value
+      },
+    }
+
+    Object.defineProperty(target, propertyName, descriptor)
+  }
+}
+class User {
+  @MinLength(5)
+  password: string
+
+  constructor(password: string) {
+    this.password = password
+  }
+}
+*/
+
+// Parameter Decorators
+/*
+type WatchedParameters = {
+  methodName: string
+  parameterIndex: number
+}
+
+const watchedParameters: WatchedParameters[] = []
+
+function Watch(target: any, methodName: string, parameterIndex: number) {
+  watchedParameters.push({
+    methodName,
+    parameterIndex,
+  })
+}
+class Vehicle {
+  move(@Watch speed: number) {}
+}
+
+console.log(watchedParameters)
+*/
+
+// Exercise
+/*
+function Sauce(name: string) {
+  return (constructor: Function) => {
+    constructor.prototype.sauce = name
+  }
+}
+@Sauce('pesto')
+class Pizza { }
 */
