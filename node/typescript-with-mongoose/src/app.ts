@@ -8,6 +8,8 @@ import mongoConnect from './utils/connect'
 const app = express()
 const PORT = config.get<number>('port')
 
+app.use(express.json())
+
 app.listen(PORT, async () => {
   logger.info(`App is running at http://localhost:${PORT}`)
   await mongoConnect()
