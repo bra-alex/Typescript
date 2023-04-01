@@ -1,7 +1,12 @@
+import config from 'config'
 import express from 'express'
 
-const app = express()
+import mongoConnect from './utils/connect'
 
-app.listen(1137, () => {
+const app = express()
+const PORT = config.get<number>('port')
+
+app.listen(PORT, async () => {
   console.log('Running')
+  await mongoConnect()
 })
