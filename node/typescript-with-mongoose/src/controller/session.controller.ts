@@ -16,7 +16,7 @@ async function createUserSessionHandler(req: Request, res: Response) {
       ...user,
       session: session._id,
     },
-    { expiresIn: config.get<string>('accessTokenTtl') },
+    { expiresIn: config.get('accessTokenTtl') },
   )
 
   const refreshToken = signJWT(
@@ -24,7 +24,7 @@ async function createUserSessionHandler(req: Request, res: Response) {
       ...user,
       session: session._id,
     },
-    { expiresIn: config.get<string>('refreshTokenTtl') },
+    { expiresIn: config.get('refreshTokenTtl') },
   )
 
   res.status(200).json({ accessToken, refreshToken })
