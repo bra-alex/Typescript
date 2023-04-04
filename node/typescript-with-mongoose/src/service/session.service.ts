@@ -11,4 +11,8 @@ async function getSessions(query: FilterQuery<SchemaDocument>) {
   return SessionModel.find(query).lean()
 }
 
+async function updateSession() {
+  
+}
+
 export { createSession, getSessions }

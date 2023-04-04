@@ -37,4 +37,12 @@ async function getUserSessionsHandler(req: Request, res: Response) {
   res.status(200).json(sessions)
 }
 
-export { createUserSessionHandler, getUserSessionsHandler }
+async function deleteSessionHandler(req: Request, res: Response) {
+  const sessionId = res.locals.user.session
+  return res.status(200).json({
+    accessToken: null,
+    refreshToken: null,
+  })
+}
+
+export { createUserSessionHandler, getUserSessionsHandler, deleteSessionHandler }
