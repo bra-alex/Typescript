@@ -40,6 +40,7 @@ async function getUserSessionsHandler(req: Request, res: Response) {
 async function deleteSessionHandler(req: Request, res: Response) {
   const sessionId = res.locals.user.session
   return res.status(200).json({
+    sessionId,
     accessToken: null,
     refreshToken: null,
   })
