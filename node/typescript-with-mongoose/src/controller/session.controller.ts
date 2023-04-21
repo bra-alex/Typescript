@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 
 import { signJWT } from '../utils/jwt.utils'
 import { validatePassword } from '../service/user.service'
-import { createSession, getSessions } from '../service/session.service'
+import { createSession, getSessions, updateSession } from '../service/session.service'
 
 async function createUserSessionHandler(req: Request, res: Response) {
   const user = await validatePassword(req.body)
@@ -39,8 +39,8 @@ async function getUserSessionsHandler(req: Request, res: Response) {
 
 async function deleteSessionHandler(req: Request, res: Response) {
   const sessionId = res.locals.user.session
+  await updateSession({ _id: sessionId }, { valid: false })
   return res.status(200).json({
-    sessionId,
     accessToken: null,
     refreshToken: null,
   })
