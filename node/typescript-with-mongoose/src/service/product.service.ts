@@ -18,11 +18,11 @@ async function findAndUpdateProduct(
   update: UpdateQuery<ProductDocument>,
   options: QueryOptions,
 ) {
-  return ProductModel.findOneAndUpdate(query, update, options)
+  return await ProductModel.findOneAndUpdate(query, update, options)
 }
 
 async function deleteProduct(query: FilterQuery<ProductDocument>) {
-  return ProductModel.deleteOne(query)
+  return await ProductModel.deleteOne(query)
 }
 
 export { createProduct, findProduct, findAndUpdateProduct, deleteProduct }

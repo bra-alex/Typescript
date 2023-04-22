@@ -11,6 +11,7 @@ import {
   getUserSessionsHandler,
 } from './controller/session.controller'
 import {
+  createProductHandler,
   deleteProductHandler,
   getProductHandler,
   updateProductHandler,
@@ -30,7 +31,11 @@ export default function routes(app: Express) {
   app.delete('/api/sessions', requireUser, deleteSessionHandler)
 
   app.get('/api/products/:productId', validateResource(getProductSchema), getProductHandler)
-  app.post('/api/products', [requireUser, validateResource(createProductSchema)], createUserHandler)
+  app.post(
+    '/api/products',
+    [requireUser, validateResource(createProductSchema)],
+    createProductHandler,
+  )
   app.put(
     '/api/products/:productId',
     [requireUser, validateResource(updateProductSchema)],
