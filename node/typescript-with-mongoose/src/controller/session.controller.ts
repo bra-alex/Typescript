@@ -27,7 +27,7 @@ async function createUserSessionHandler(req: Request, res: Response) {
     { expiresIn: config.get('refreshTokenTtl') },
   )
 
-  res.status(200).json({ accessToken, refreshToken })
+  res.send({ accessToken, refreshToken })
 }
 
 async function getUserSessionsHandler(req: Request, res: Response) {
